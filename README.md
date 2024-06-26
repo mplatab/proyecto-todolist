@@ -24,11 +24,21 @@ cd proyecto-todolist
 ```
 **2. Configuración de la Base de Datos**
 ```application.yml o application.properties
-spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
-spring.datasource.username=usuario
-spring.datasource.password=contraseña
-spring.jpa.hibernate.ddl-auto=update
-
+server:
+  port: 8080
+spring:
+  application:
+    name: proyecto-todolist
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/todolist
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
 ```
  **1. Compilar y Ejecutar**
 ```
